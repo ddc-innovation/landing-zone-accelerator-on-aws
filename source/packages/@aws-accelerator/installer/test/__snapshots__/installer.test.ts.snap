@@ -1931,7 +1931,7 @@ phases:
                             export ENABLE_ASEA_MIGRATION=true
                           fi;
       - |-
-        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "Yes" ]; then
+        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "true" ]; then
                         yarn run ts-node --transpile-only cdk.ts deploy --require-approval never --stage diagnostics-pack --account ",
                 {
                   "Ref": "AWS::AccountId",
@@ -5350,7 +5350,7 @@ phases:
                             export ENABLE_ASEA_MIGRATION=true
                           fi;
       - |-
-        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "Yes" ]; then
+        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "true" ]; then
                         yarn run ts-node --transpile-only cdk.ts deploy --require-approval never --stage diagnostics-pack --account ",
                 {
                   "Ref": "AWS::AccountId",
@@ -8805,7 +8805,7 @@ phases:
                             export ENABLE_ASEA_MIGRATION=true
                           fi;
       - |-
-        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "Yes" ]; then
+        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "true" ]; then
                         yarn run ts-node --transpile-only cdk.ts deploy --require-approval never --stage diagnostics-pack --account ",
                 {
                   "Ref": "AWS::AccountId",
@@ -12237,7 +12237,7 @@ phases:
                             export ENABLE_ASEA_MIGRATION=true
                           fi;
       - |-
-        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "Yes" ]; then
+        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "true" ]; then
                         yarn run ts-node --transpile-only cdk.ts deploy --require-approval never --stage diagnostics-pack --account ",
                 {
                   "Ref": "AWS::AccountId",
@@ -15674,7 +15674,7 @@ phases:
                             export ENABLE_ASEA_MIGRATION=true
                           fi;
       - |-
-        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "Yes" ]; then
+        set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "true" ]; then
                         yarn run ts-node --transpile-only cdk.ts deploy --require-approval never --stage diagnostics-pack --account ",
                 {
                   "Ref": "AWS::AccountId",

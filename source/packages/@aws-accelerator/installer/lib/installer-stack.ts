@@ -674,7 +674,7 @@ export class InstallerStack extends cdk.Stack {
                     echo "SSM Parameter Found, setting ENABLE_ASEA_MIGRATION to true"
                     export ENABLE_ASEA_MIGRATION=true
                   fi;`,
-              `set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "Yes" ]; then
+              `set -e && if [ $ENABLE_DIAGNOSTICS_PACK = "true" ]; then
                 yarn run ts-node --transpile-only cdk.ts deploy --require-approval never --stage diagnostics-pack --account ${cdk.Aws.ACCOUNT_ID} --region ${cdk.Aws.REGION} --partition ${cdk.Aws.PARTITION}
               fi`,
               `set -e && yarn run ts-node --transpile-only cdk.ts deploy --require-approval never --stage pipeline --account ${cdk.Aws.ACCOUNT_ID} --region ${cdk.Aws.REGION} --partition ${cdk.Aws.PARTITION}`,

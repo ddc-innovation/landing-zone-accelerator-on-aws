@@ -17,7 +17,9 @@ export class DiagnosticsPack {
     //
     // Diagnostics pack assume role creation
     //
-    this.createDiagnosticsPackAssumeRole(props);
+    if (props.isDiagnosticsPackEnabled === true) {
+      this.createDiagnosticsPackAssumeRole(props);
+    }
   }
 
   /**
@@ -26,7 +28,7 @@ export class DiagnosticsPack {
    * @returns
    */
   private createDiagnosticsPackAssumeRole(props: AcceleratorStackProps) {
-    const isDiagnosticsPackEnabled = props.isDiagnosticsPackEnabled === 'Yes' ? true : false;
+    // const isDiagnosticsPackEnabled = props.isDiagnosticsPackEnabled
 
     const managementAccountId = props.accountsConfig.getManagementAccountId();
 
@@ -35,11 +37,16 @@ export class DiagnosticsPack {
       return;
     }
 
+    // No need to create the role if DiagnosticsPack is not enabled. 
+    if (props.isDiagnosticsPackEnabled === false){
+      return;
+    }
+
     const assumeByAccountId =
       props.pipelineAccountId !== managementAccountId ? props.pipelineAccountId : managementAccountId;
 
     // Create diagnostic role in every account home region except management account for non external deployment
-    if (isDiagnosticsPackEnabled && this.stack.region === props.globalConfig.homeRegion) {
+    if (props.isDiagnosticsPackEnabled === true && this.stack.region === props.globalConfig.homeRegion) {
       const role = new cdk.aws_iam.Role(this.stack, 'DiagnosticsPackAssumeRole', {
         roleName: this.stack.acceleratorResourceNames.roles.diagnosticsPackAssumeRoleName,
         assumedBy: new cdk.aws_iam.ArnPrincipal(

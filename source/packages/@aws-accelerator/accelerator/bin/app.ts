@@ -215,7 +215,7 @@ async function main() {
   //
   // Create the diagnostics pack resources. The Diagnostics pack stack will be deployed for multi-account environments without utilizing existing roles for deployment.
   //
-  if (!useExistingRoles && !acceleratorEnv.enableSingleAccountMode) {
+  if (!useExistingRoles && !acceleratorEnv.enableSingleAccountMode && acceleratorEnv.isDiagnosticsPackEnabled === true) {
     createDiagnosticsPackStack(app, context, acceleratorEnv, resourcePrefixes);
   }
 

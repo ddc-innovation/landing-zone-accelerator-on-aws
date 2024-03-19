@@ -190,7 +190,7 @@ export interface AcceleratorStackProps extends cdk.StackProps {
   /**
    * Flag indicating diagnostic pack enabled
    */
-  isDiagnosticsPackEnabled: string;
+  isDiagnosticsPackEnabled: boolean;
   /**
    * Accelerator pipeline account id, for external deployment it will be pipeline account otherwise management account
    */

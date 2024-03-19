@@ -121,7 +121,7 @@ export interface AcceleratorEnvironment {
   /**
    * Flag indicating diagnostic pack enabled
    */
-  isDiagnosticsPackEnabled: string;
+  isDiagnosticsPackEnabled: boolean;
   /**
    * Audit (Security-Tooling) account email address
    */
@@ -334,7 +334,9 @@ export function setAcceleratorEnvironment(
   return {
     installerStackName: env['INSTALLER_STACK_NAME'] ?? '',
     pipelineAccountId: env['PIPELINE_ACCOUNT_ID'] ?? '',
-    isDiagnosticsPackEnabled: env['ENABLE_DIAGNOSTICS_PACK'] ?? 'Yes',
+    isDiagnosticsPackEnabled: env['ENABLE_DIAGNOSTICS_PACK'] 
+      ? env['ENABLE_DIAGNOSTICS_PACK'] === 'Yes'
+      : true,
     auditAccountEmail: env['AUDIT_ACCOUNT_EMAIL'] ?? '',
     configRepositoryName,
     configRepositoryBranchName: env['EXISTING_CONFIG_REPOSITORY_BRANCH_NAME'] ?? 'main',

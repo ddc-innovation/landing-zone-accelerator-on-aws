@@ -326,7 +326,7 @@ export function createDiagnosticsPackStack(
       stage: AcceleratorStage.DIAGNOSTICS_PACK,
       account: context.account,
       region: context.region,
-    })
+    }) && acceleratorEnv.isDiagnosticsPackEnabled
   ) {
     const diagnosticsPackStackName = AcceleratorToolkit.getNonConfigDependentStackName(
       AcceleratorStage.DIAGNOSTICS_PACK,

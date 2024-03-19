@@ -45,7 +45,7 @@ export class DependenciesStack extends AcceleratorStack {
     //
     // Create the diagnostics pack dependent resources. The Diagnostics pack will be deployed for multi-account environments without utilizing existing roles for deployment.
     //
-    if (!props.enableSingleAccountMode && !props.useExistingRoles) {
+    if (props.isDiagnosticsPackEnabled === true && (!props.enableSingleAccountMode && !props.useExistingRoles)) {
       new DiagnosticsPack(this, props);
     }
   }
